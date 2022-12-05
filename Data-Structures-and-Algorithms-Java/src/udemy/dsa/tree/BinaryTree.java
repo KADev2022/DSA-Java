@@ -48,21 +48,21 @@ public class BinaryTree {
 	 * 
 	 * @param root The root node of the Binary Tree
 	 */
-	public void preOrder(TreeNode root) {
+	public void preOrderRecursive(TreeNode root) {
 		// Base case
 		if (root == null) {
 			return;
 		}
 		
 		System.out.print(root.data + " ");
-		preOrder(root.left);
-		preOrder(root.right);
+		preOrderRecursive(root.left);
+		preOrderRecursive(root.right);
 	}
 	
 	/**
 	 * Iterative Pre-Order traversal of a Binary Tree.
 	 */
-	public void preOrder() {
+	public void preOrderIterative() {
 		// If the root node is null, return the method
 		if (root == null) {
 			return;
@@ -103,7 +103,7 @@ public class BinaryTree {
 		BinaryTree bt = new BinaryTree();
 		
 		bt.createBinaryTree();
-		bt.preOrder();
+		bt.preOrderIterative();
 	}
 
 }
