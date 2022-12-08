@@ -48,21 +48,21 @@ public class BinaryTree {
 	 * 
 	 * @param root The root node of the Binary Tree
 	 */
-	public void preOrder(TreeNode root) {
+	public void preOrderRecursive(TreeNode root) {
 		// Base case
 		if (root == null) {
 			return;
 		}
 		
 		System.out.print(root.data + " ");
-		preOrder(root.left);
-		preOrder(root.right);
+		preOrderRecursive(root.left);
+		preOrderRecursive(root.right);
 	}
 	
 	/**
 	 * Iterative Pre-Order traversal of a Binary Tree.
 	 */
-	public void preOrder() {
+	public void preOrderIterative() {
 		// If the root node is null, return the method
 		if (root == null) {
 			return;
@@ -93,6 +93,54 @@ public class BinaryTree {
 	}
 	
 	/**
+	 * Recursive In-Order traversal of a Binary Tree.
+	 * 
+	 * @param root The root node of the Binary Tree
+	 */
+	public void inOrderRecursive(TreeNode root) {
+		// Base case
+		if (root == null) {
+			return;
+		}
+		
+		inOrderRecursive(root.left);
+		System.out.print(root.data + " ");
+		inOrderRecursive(root.right);
+	}
+	
+	/**
+	 * Iterative In-Order traversal of a Binary Tree.
+	 * 
+	 * @param root The root node of the Binary Tree
+	 */
+	public void inOrderIterative(TreeNode root) {
+		// If the root node is null, return the method
+		if (root == null) {
+			return;
+		}
+		
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode temp = root;
+		
+		/*
+		 * Loop to check if the stack is not empty or temp is not null.
+		 * If the condition is true, then do a condition statement to check if the temp node is not null.
+		 * If that condition is true, push the temp to stack and point temp to its left subtree.
+		 * Otherwise, pop the temp from the stack, print its data on the console and point temp to its right subtree.
+		 */
+		while (!stack.isEmpty() || temp != null) {
+			if (temp != null) {
+				stack.push(temp);
+				temp = temp.left;
+			} else {
+				temp = stack.pop();
+				System.out.print(temp.data + " ");
+				temp = temp.right;
+			}
+		}
+	}
+	
+	/**
 	 * The main method of this application.
 	 * 
 	 * NOTE: This method can be edited if you want to call any of the methods above.
@@ -103,7 +151,21 @@ public class BinaryTree {
 		BinaryTree bt = new BinaryTree();
 		
 		bt.createBinaryTree();
-		bt.preOrder();
+		
+		System.out.print("Pre Order Recursive: ");
+		bt.preOrderRecursive(bt.root);
+		System.out.println();
+		
+		System.out.print("Pre Order Iterative: ");
+		bt.preOrderIterative();
+		System.out.println();
+		
+		System.out.print("In Order Recursive: ");
+		bt.inOrderRecursive(bt.root);
+		System.out.println();
+		
+		System.out.print("In Order Iterative: ");
+		bt.inOrderIterative(bt.root);
 	}
 
 }
