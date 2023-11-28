@@ -20,7 +20,7 @@ public class DoublyLinkedList {
 	 *
 	 */
 	private class ListNode {
-		private int data;	// Generic Type
+		private int data;	// Generic Type - data
 		private ListNode next;
 		private ListNode previous;
 		

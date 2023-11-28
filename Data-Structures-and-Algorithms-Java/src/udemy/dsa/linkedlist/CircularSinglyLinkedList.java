@@ -20,7 +20,7 @@ public class CircularSinglyLinkedList {
 	 */
 	private class ListNode {
 		private ListNode next;
-		private int data;	// Generic Type
+		private int data;	// Generic Type - data
 		
 		public ListNode(int data) {
 			this.data = data;
